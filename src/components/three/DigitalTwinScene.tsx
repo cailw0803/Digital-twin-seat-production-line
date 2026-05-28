@@ -24,7 +24,17 @@ export default function DigitalTwinScene({
   onStationSelect: (info: StationInfo | null) => void;
 }) {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none">
+    <div
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        zIndex: 0,
+        pointerEvents: 'auto',
+      }}
+    >
       <SceneContainer>
         <ConveyorBelt />
         <SeatMesh />

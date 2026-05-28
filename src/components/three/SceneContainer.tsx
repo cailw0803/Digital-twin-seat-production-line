@@ -14,7 +14,14 @@ export default function SceneContainer({ children }: SceneContainerProps) {
       shadows
       camera={{ position: [50, 40, 80], fov: 50 }}
       gl={{ antialias: true }}
-      className="absolute inset-0"
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        pointerEvents: 'auto',
+      }}
     >
       <color attach="background" args={['#f8fafc']} />
       <fog attach="fog" args={['#f8fafc', 80, 250]} />
@@ -49,8 +56,9 @@ export default function SceneContainer({ children }: SceneContainerProps) {
 
       <OrbitControls
         enablePan={false}
+        enableDamping
         minPolarAngle={Math.PI / 6}
-        maxPolarAngle={Math.PI / 2.5}
+        maxPolarAngle={Math.PI / 2.1}
         minDistance={40}
         maxDistance={120}
       />

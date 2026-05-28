@@ -52,8 +52,8 @@ function StationCard({ station, onInjectFault }: StationCardProps) {
 
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-3">
-          <span className="text-lg font-bold text-gray-800">{station.name}</span>
-          <span className={`text-sm font-medium ${statusTextColor}`}>
+          <span className="text-lg font-bold text-gray-800 select-none">{station.name}</span>
+          <span className={`text-sm font-medium ${statusTextColor} select-none`}>
             {statusText}
           </span>
         </div>
@@ -105,7 +105,7 @@ export default function StationMonitor() {
   const { stations, injectFault } = useProductionStore();
 
   return (
-    <div className="grid grid-cols-5 gap-4">
+    <div className="grid grid-cols-5 gap-4 pointer-events-auto">
       {stations.map((station: Station) => (
         <StationCard
           key={station.id}

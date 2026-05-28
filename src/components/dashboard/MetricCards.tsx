@@ -23,8 +23,8 @@ function MetricCard({ icon, label, value, unit, isActive, color }: MetricCardPro
 
       <div className="relative z-10 flex items-start justify-between">
         <div>
-          <div className="text-gray-500 text-sm font-medium mb-1">{label}</div>
-          <div className={`text-3xl font-bold font-mono ${color.replace('from-', 'text-').replace('-400', '-600')}`}>
+          <div className="text-gray-500 text-sm font-medium mb-1 select-none">{label}</div>
+          <div className={`text-3xl font-bold font-mono select-none ${color.replace('from-', 'text-').replace('-400', '-600')}`}>
             {typeof displayValue === 'number' ? displayValue.toFixed(1) : displayValue}
             {unit && <span className="text-lg ml-1 text-gray-500">{unit}</span>}
           </div>
@@ -47,7 +47,7 @@ export default function MetricCards() {
   const isRunning = lineStatus === 'running';
 
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="grid grid-cols-4 gap-4 pointer-events-auto">
       <MetricCard
         icon={<Gauge className="w-5 h-5" />}
         label="设备综合效率 OEE"

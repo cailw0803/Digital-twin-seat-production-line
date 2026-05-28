@@ -40,18 +40,18 @@ export default function Header() {
   };
 
   return (
-    <header className="relative z-10 flex items-center justify-between px-8 py-4 bg-white border-b border-gray-200 shadow-sm">
+    <header className="relative z-10 flex items-center justify-between px-8 py-4 bg-white border-b border-gray-200 shadow-sm pointer-events-auto select-none">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 tracking-wide">
+        <h1 className="text-2xl font-bold text-gray-900 tracking-wide select-none">
           座椅生产线数字孪生控制中心
         </h1>
-        <p className="text-sm text-gray-500 mt-1">Digital Twin Production Control System</p>
+        <p className="text-sm text-gray-500 mt-1 select-none">Digital Twin Production Control System</p>
       </div>
 
       <div className="flex items-center gap-6">
         <div className="text-right">
-          <div className="text-2xl font-mono text-emerald-600">{currentTime}</div>
-          <div className="text-xs text-gray-400">SYSTEM TIME</div>
+          <div className="text-2xl font-mono text-emerald-600 select-none">{currentTime}</div>
+          <div className="text-xs text-gray-400 select-none">SYSTEM TIME</div>
         </div>
 
         <div className="flex gap-3">

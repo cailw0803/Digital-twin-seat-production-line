@@ -36,7 +36,22 @@ function StationDetailPanel({
   };
 
   return (
-    <div className="absolute right-6 top-1/2 -translate-y-1/2 w-80 bg-white border border-gray-200 rounded-xl p-5 z-20 shadow-xl">
+    <div
+        style={{
+          position: 'absolute',
+          right: '1.5rem',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          width: '20rem',
+          backgroundColor: 'white',
+          border: '1px solid #e5e7eb',
+          borderRadius: '0.75rem',
+          padding: '1.25rem',
+          zIndex: 20,
+          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+          userSelect: 'none',
+        }}
+      >
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-bold text-gray-900">{station.name}</h3>
         <button
@@ -110,14 +125,36 @@ export default function Home() {
   const [selectedStation, setSelectedStation] = useState<StationInfo | null>(null);
 
   return (
-    <div className="relative min-h-screen bg-gray-50 overflow-hidden">
-      <div className="fixed inset-0 z-0">
+    <div style={{ position: 'relative', minHeight: '100vh', backgroundColor: '#f9fafb', overflow: 'hidden' }}>
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          zIndex: 0,
+          pointerEvents: 'auto',
+        }}
+      >
         <DigitalTwinScene onStationSelect={setSelectedStation} />
       </div>
 
-      <div className="relative z-10 flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-1 p-6 space-y-6">
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 10,
+          pointerEvents: 'none',
+        }}
+      >
+        <div style={{ pointerEvents: 'auto' }}>
+          <Header />
+        </div>
+        <main style={{ flex: 1, padding: '1.5rem', pointerEvents: 'auto' }}>
           <MetricCards />
           <StationMonitor />
         </main>
